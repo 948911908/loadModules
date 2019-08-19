@@ -1,12 +1,25 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <span @click="jumpPage('/')">Home</span> |
+      <span @click="jumpPage('/about')">About</span>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    jumpPage(path) {
+      this.$router.push({
+        path
+      })
+    }
+  }
+}
+  
+</script>
 
 <style>
 #app {
@@ -20,12 +33,13 @@
   padding: 30px;
 }
 
-#nav a {
+#nav span {
   font-weight: bold;
   color: #2c3e50;
+  cursor: pointer;
 }
 
-#nav a.router-link-exact-active {
+#nav span.router-link-exact-active {
   color: #42b983;
 }
 </style>

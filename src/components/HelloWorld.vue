@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <button @click="test">触发HelloWorld子组件事件</button>
+    <h1>{{ name }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -34,7 +35,16 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    msg: String,
+    name: String|Number
+  },
+  methods: {
+    test() {
+      this.$emit('click', 123123)
+    }
+  },
+  beforeDestory() {
+    console.log('离开')
   }
 }
 </script>
